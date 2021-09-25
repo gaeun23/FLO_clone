@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.flo.databinding.FragmentSearchBinding
 
-
 class SearchFragment : Fragment() {
     lateinit var binding: FragmentSearchBinding
 

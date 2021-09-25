@@ -2,8 +2,8 @@ package com.example.flo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.flo.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -16,30 +16,19 @@ class MainActivity : AppCompatActivity() {
         binding.mainBnv.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.homeFragment -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, HomeFragment())
-                        .commitAllowingStateLoss()
+                    setMainBnvTransaction(HomeFragment())
                     return@setOnItemSelectedListener true
                 }
-
                 R.id.lookFragment -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, LookFragment())
-                        .commitAllowingStateLoss()
+                    setMainBnvTransaction(LookFragment())
                     return@setOnItemSelectedListener true
                 }
-
                 R.id.searchFragment -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, SearchFragment())
-                        .commitAllowingStateLoss()
+                    setMainBnvTransaction(SearchFragment())
                     return@setOnItemSelectedListener true
                 }
-
                 R.id.lockerFragment -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, LockerFragment())
-                        .commitAllowingStateLoss()
+                    setMainBnvTransaction(LockerFragment())
                     return@setOnItemSelectedListener true
                 }
             }
@@ -49,6 +38,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun initNavigation() {
         supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment())
+            .commitAllowingStateLoss()
+    }
+
+    private fun setMainBnvTransaction(thisFragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_frm, thisFragment)
             .commitAllowingStateLoss()
     }
 }

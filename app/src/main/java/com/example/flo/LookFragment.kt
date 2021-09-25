@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.flo.databinding.FragmentLookBinding
 
-
 class LookFragment : Fragment() {
     lateinit var binding: FragmentLookBinding
 
