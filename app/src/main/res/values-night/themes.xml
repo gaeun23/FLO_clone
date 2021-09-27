@@ -10,8 +10,8 @@
         <item name="colorSecondaryVariant">@color/flo_blue</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor" tools:targetApi="1">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
         <!-- Status bar Visibility -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
