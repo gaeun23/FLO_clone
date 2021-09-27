@@ -272,7 +272,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:text="ITZY (있지)"
-                        android:textColor="@color/flo_gray_1"
+                        android:textColor="@color/flo_gray_9d9d"
                         android:textSize="13sp" />
                 </LinearLayout>
 
@@ -304,7 +304,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:text="톤 (TONE)"
-                        android:textColor="@color/flo_gray_1"
+                        android:textColor="@color/flo_gray_9d9d"
                         android:textSize="13sp" />
                 </LinearLayout>
 
@@ -336,7 +336,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:text="리즈 (Leeds)"
-                        android:textColor="@color/flo_gray_1"
+                        android:textColor="@color/flo_gray_9d9d"
                         android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -506,7 +506,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:text="이달의 소녀"
-                        android:textColor="@color/flo_gray_1"
+                        android:textColor="@color/flo_gray_9d9d"
                         android:textSize="13sp" />
                 </LinearLayout>
 
@@ -535,7 +535,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:text="이달의 소녀"
-                        android:textColor="@color/flo_gray_1"
+                        android:textColor="@color/flo_gray_9d9d"
                         android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -639,7 +639,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="34dp"
             android:text="@string/home_copyright"
-            android:textColor="@color/flo_gray_1"
+            android:textColor="@color/flo_gray_9d9d"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
