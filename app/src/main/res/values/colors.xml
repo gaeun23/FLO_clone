@@ -6,6 +6,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="flo_gray_1">#9D9D9D</color>
+    <color name="flo_gray_9d9d">#9D9D9D</color>
+    <color name="flo_gray_f3f3">#f3f3f3</color>
+    <color name="flo_gray_7878">#787878</color>
+    <color name="flo_black_4c4c">#4c4c4c</color>
 </resources>
 
