@@ -1,10 +1,12 @@
-package com.example.flo
+package com.example.flo.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.flo.MainActivity
+import com.example.flo.R
 import com.example.flo.databinding.FragmentHomeBinding
 
 
