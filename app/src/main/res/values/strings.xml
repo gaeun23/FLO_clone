@@ -22,4 +22,14 @@
     <string name="look_flo_chart">FLO 차트</string>
     <string name="look_flo_chart_info">최근 24시간 집계, FLO 최고 인기곡 차트!</string>
     <string name="look_flo_chart_all_play">전체듣기</string>
+    
+    <!--Album Fragment-->
+    <string name="album_track_list">수록곡</string>
+    <string name="album_detail_info">상세정보</string>
+    <string name="album_video">영상</string>
+    <string name="album_my_mix">내 취향 MIX</string>
+    <string name="album_playlist_all_select">전체선택</string>
+    <string name="album_playlist_all_play">전체듣기</string>
+    <string name="singer_itzy">ITZY (있지)</string>
+    <string name="album_playlist_title_ic">TITLE</string>
 </resources>
