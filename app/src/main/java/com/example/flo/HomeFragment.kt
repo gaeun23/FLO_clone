@@ -9,7 +9,7 @@ import com.example.flo.databinding.FragmentHomeBinding
 
 
 class HomeFragment : Fragment() {
-    lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -17,6 +17,15 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        setGoToAlbumFrg()
         return binding.root
+    }
+
+    private fun setGoToAlbumFrg() {
+        binding.homeTodayExp01Layout.setOnClickListener {
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, AlbumFragment())
+                .commitAllowingStateLoss()
+        }
     }
 }
