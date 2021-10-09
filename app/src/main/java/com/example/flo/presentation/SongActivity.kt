@@ -1,8 +1,12 @@
 package com.example.flo.presentation
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.flo.R
 import com.example.flo.databinding.ActivitySongBinding
 
@@ -22,8 +26,10 @@ class SongActivity : AppCompatActivity() {
     }
 
     private fun setImgRadius() {
-        binding.songAlbumArtIv.setBackgroundResource(R.drawable.border_radius_6)
-        binding.songAlbumArtIv.clipToOutline = true
+        Glide.with(this)
+            .load(R.drawable.img_song_album_art)
+            .transform(CenterCrop(), RoundedCorners(20))
+            .into(binding.songAlbumArtIv)
     }
 
     private fun setSongText() {
