@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="200dp">
+
+        <LinearLayout
+            android:id="@+id/detail_info_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/detail_label_title"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/detail_label_artist"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/detail_label_release_company"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/detail_label_main_company"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/detail_info_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/detail_info_label"
+            app:layout_constraintTop_toTopOf="@id/detail_info_label">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CRAZY IN LOVE"
+                android:textColor="@color/flo_gray_7878"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/singer_itzy"
+                android:textColor="@color/flo_gray_7878"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Dreamus"
+                android:textColor="@color/flo_gray_7878"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="(주)JYP엔터테인먼트"
+                android:textColor="@color/flo_gray_7878"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/detail_introduction_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/detail_label_introduction"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_info_label" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="100dp"
+            android:lineSpacingExtra="4dp"
+            android:text="K팝 4세대 대표 걸그룹' ITZY, 9월 24일 첫 정규 앨범 [CRAZY IN LOVE] 및 타이틀곡 'LOCO' 전 세계 동시 발매
+\n\n
+- 히트 작곡팀 별들의전쟁 * (GALACTIKA *)과 세 번째 만남! ‘달라달라’, ‘WANNABE’ 이을 新 명곡 탄생 예감!\n
+- 타이틀곡 'LOCO', ITZY가 노래하는 ‘미친’ 사랑의 노래! Z세대의 화법으로 표현한 강렬한 감정의 이끌림!\n
+- 모두가 기다려온 첫 정규 앨범! 최상의 완성도 자랑하는 신보 및 타이틀곡으로 2021 하반기 가요계 정조준!\n
+\n
+ITZY(있지)가 9월 24일 첫 번째 정규 앨범 [CRAZY IN LOVE](크레이지 인 러브)와 타이틀곡 'LOCO'(로꼬)를 전 세계 동시 발매하고 화려하게 컴백한다.
+ITZY는 4월 30일 발표한 미니 4집 [GUESS WHO](게스 후)와 타이틀곡 ‘마.피.아. In the morning’(마피아 인 더 모닝)으로 미국을 비롯한 여러 해외 차트에서 뚜렷한 성과를 거뒀다. 미국 빌보드의 메인 차트인 ‘빌보드 200’과 ‘아티스트 100’에 동시 진입하는 쾌거를 이뤘고, 글로벌 음악 플랫폼 스포티파이의 글로벌 톱 200 차트에서는 자체 기록을 경신하며 놀라운 성장세를 입증했다. 와일드한 콘셉트와 최강 퍼포먼스로 ‘K팝 프런트 그룹’다운 기세를 드러낸 이들은 데뷔 후 처음으로 발표하는 정규 음반 [CRAZY IN LOVE]로 세계 무대를 향해 더욱 힘찬 발걸음을 내딛는다.
+타이틀곡 ‘LOCO’는 스스로에 대한 믿음을 바탕으로 늘 당당함을 잃지 않는 ITZY의 새로운 모습을 만날 수 있다. 사랑 따위에 목 메지 않을 것만 같던 이들은 결국 그 사랑에 깊게 빠져 버렸음을 고백하고 “넌 날 반쯤 미치게 만들어”, “Oh Gosh 이건 달콤한 독 같아”와 같은 말을 쏟아내며 강렬한 감정의 이끌림을 노래한다.
+대표곡 ‘달라달라’와 ‘WANNABE’(워너비)를 통해 환상의 케미스트리를 입증한 히트 작곡팀 별들의전쟁 * (GALACTIKA *)과의 세 번째 만남은 또 하나의 명곡 탄생을 예감케 한다. 별들의전쟁 * (GALACTIKA *)의 트레이드 마크인 퓨전 그루브(Fusion Groove)에 라틴댄스와 뭄바톤, 트랩 사운드를 결합해 ITZY 표 '네오 퓨전 그루브(Neo Fusion Groove)' 장르를 탄생시켰다. 라틴어에서 유래된 ‘Crazy’의 또 다른 말인 ‘LOCO’라는 타이틀을 전면에 내세웠고, 사랑의 소용돌이에 휩쓸린 상태를 질주하는 듯한 사운드로 표현했다.
+이는 새 비주얼 콘셉트와 뮤직비디오에도 고스란히 담겨 있다. \n
+[Credit]
+\n\n
+1. LOCO *TITLE
+결국 사랑이라는 감정에 빠져 버렸다!
+    스스로에 대한 믿음을 바탕으로 늘 당당함을 잃지 않는 ITZY의 새로운 모습을 만날 수 있는 곡으로, 넌 날 반쯤 미치게 만들어, Oh Gosh 이건 달콤한 독 같아와 같은 가사를 통해 미친 듯한 감정의 이끌림을 노래한다. '달라달라', 'WANNABE'를 통해 환상의 케미스트리를 입증한 작곡팀 별들의전쟁 * (GALACTIKA *)과의 세 번째 만남으로 또 하나의 명곡 탄생을 예감케 한다.
+\n
+    Lyrics by 별들의전쟁 * (GALACTIKA *)
+    Composed by 별들의전쟁 * (GALACTIKA *), 아테나 (GALACTIKA *), 우빈 (GALACTIKA *)
+    Arranged by team GALACTIKA *
+    Original publisher GALACTIKA *
+    Sessions
+    Drums by CHANG (GALACTIKA *)
+    Synthesizer by CHANG, 아테나, 우빈
+    Keyboards by CHANG, 아테나, 우빈
+    Bass by CHANG, 아테나, 우빈
+    Guitar by 김박첼라
+    Background vocals by FRIDAY. (GALACTIKA *), e.NA (GALACTIKA *), OGI (GALACTIKA *), Sophia Pae, aiden
+    Vocal directed by FRIDAY. (GALACTIKA *)
+    Digital edited by 엄세희 at JYPE Studios, 아테나
+    Recorded by 박은정, 엄세희 at JYPE Studios, 별들의전쟁 * at GALACTIKA studios
+    Mixed by Jaycen Joshua for The Penua Project at Canton House Studios, Studio City, CA Assisted by Jacob Richards, Mike Seaberg DJ Riggins
+    Mastered by Chris Gehringer at Sterling Sound, USA
+\n\n
+    2. SWIPE
+    '나의 행동 하나하나에 집착과 간섭이 늘어나는 너!'
+    작은 휴대폰 안에서 점점 간섭과 집착이 늘어가는 상대방을 가볍게 무시하는 마음을 'SWIPE'라는 단어로 표현했다. '선을 넘는다면 우리 사이는 여기까지'라는 경고의 메시지를 담은 힙합 곡으로, 808 드럼 비트와 무거운 베이스, 레트로 클라리넷 위로 흐르는 멜로딕한 랩이 매력적이다.
+\n
+    Lyrics by 조윤경
+    Composed by Ludwig Lindell, Josefin Glenmark, Oneye
+    Arranged by Ludwig Lindell
+    Original publisher EKKO Music Rights (powered by CTGA), The Kennel AB/Universal Music Publishing AB
+    Sub publisher Universal Music Publishing, Copyright Control
+    Sessions
+    Computer programming by Ludwig Lindell
+    Background vocals by Ra.L, Josefin Glenmark
+    Vocal directed by earattack
+    Digital edited by 정유라
+    Recorded by earattack, 엄세희, 이상엽 at JYPE Studios
+    Mixed by 임홍진 at JYPE Studios
+    Mastered by 권남우 @ 821 Sound Mastering
+\n\n
+    3. Sooo LUCKY
+    '내가 너를 좋아하고, 너도 나를 좋아할 확률은 얼마나 될까?'
+    ITZY의 넘치는 에너지와 긍정적인 분위기를 만끽할 수 있는 팝 장르의 곡으로, 펑키한 기타 사운드와 시원한 신스 베이스가 더해져 기분 좋은 울림을 선사한다. 몇 십억 인구 가운데 너와 내가 사랑에 빠진 건 기적 같은 일이라는 이야기를 바탕으로, 서로를 만나 사랑에 빠진 우리는 세상에서 가장 운이 좋은 사람들이라는 행복하고 사랑스러운 가사가 돋보인다.
+\n
+    Lyrics by 심은지
+    Composed by 심은지, 이민영(EastWest), Yeul(1by1)
+    Arranged by 이민영(EastWest), Yeul(1by1), 심은지
+    Original publisher JYP Publishing (KOMCA), Copyright Control
+    Sessions
+    Guitar by 정수완
+    Piano by Yeul(1by1)
+    Bass by 이민영(EastWest)
+    Computer programming, Drum by 이민영(EastWest), Yeul(1by1)
+    Background vocals by 이다은
+    Vocal directed by 심은지, 이민영(EastWest)
+    Digital edited by Jiyoung Shin NYC
+    Recorded by 엄세희, 구혜진 at JYPE Studios
+    Mixed by 신봉원 at GLAB Studios
+    Mastered by 권남우 @ 821 Sound Mastering
+\n\n
+    4. #Twenty
+    '어린 시절, 내가 만약 20살이 된다면 무엇이든 할 수 있을 것 같았다'
+    제목처럼 이제 갓 스무 살이 된 설렘과 두근거림을 ITZY만의 스타일로 풀어낸 힙합 장르의 곡이다. 아직은 샴페인 맛도 모르고 사랑에도 딱히 흥미 없는 서툰 나이지만, 그렇기에 뭐든지 할 수 있다는 당찬 마음을 노래한다. 마이애미 비트 위에 독특한 플럭 라인과 베이스 루프를 얹어 신선함을 배가했다.
+\n
+    Lyrics by 백금민 (Jamfactory), earattack
+    Composed by earattack, Charles 'Chizzy' Stephens III, chAN’s, eniac, Patricia K, 김보미, April Bender
+    Arranged by earattack, Charles 'Chizzy' Stephens III, chAN’s
+    Original publisher Jamfactory, CS 3rd Music Publishing Administered by Spirit Two Music, Cube Entertainment Inc, ARCHERSONGS Publishing, Copyright Control
+    Sessions
+    All Instruments by earattack, Charles 'Chizzy' Stephens III, chAN’s
+    Background vocals by Ra.L
+    Digital edited by 정유라
+    Recorded by earattack, 구혜진 at JYPE Studios
+    Mixed by 이태섭 at JYPE Studios
+    Mastered by 권남우 @ 821 Sound Mastering
+\n\n
+    5. B[OO]M-BOX
+    '심장소리가 둥둥. 마치 붐박스(BOOMBOX)처럼!'
+    '자신의 감정을 솔직하고 당당하게 표현하자'는 메시지를 밀레니얼 세대의 대표 아이템인 '붐박스'에 비유한 곡이다. 리스너들을 댄스 플로어로 이끄는 신나는 랩과 멜로디컬한 훅이 특징이며, 기호를 추가해 붐박스를 떠올리게 한 제목도 놓치면 안 될 체크 포인트다.
+\n
+    Lyrics by 조인호 (lalala studio)
+    Composed by Ian Asher, Anne Judith Stokke Wik, Nermin Harambasic, Ronny Vidar Svendsen
+    Arranged by Ian Asher
+    Original publisher 라라라스튜디오, EKKO Music Rights Europe (powered by CTGA)
+    Sub publisher EKKO Music Rights (powered by CTGA), Copyright Control
+    Sessions
+    All instruments and programming by Ian Asher
+    Background vocals by Sophia Pae
+    Vocal directed by Sophia Pae
+    Digital edited by 정모연 at Vibe Music Studio 606
+    Recorded by 엄세희, 구혜진 at JYPE Studios
+    Mixed by 박은정 at JYPE Studios
+    Mastered by 권남우 @ 821 Sound Mastering
+\n\n
+    6. Gas Me Up
+    '무대에 오르기 전 찾아오는 긴장과 설렘, 그 모든 건 우리를 더 뜨겁게 만든다'
+    지금의 ITZY를 만들고 자신감을 불어넣어 준 무대와 그 무대를 가득 채워준 함성들에 바치는 곡. 무대에 오르기 직전 조금은 불안하지만 그럼에도 불구하고 잘 하고 돌아올 나 자신을 믿는다는 가사가 뭉클한 감동을 안긴다.
+\n
+    Lyrics by Vacation
+    Composed by 250, Ylva Dimberg
+    Arranged by 250
+    Original publisher Makeumine works, Beasts And Natives Alike
+    Sessions
+    All instruments and programming by 250
+    Vocal directed by 250
+    Digital edited by YUE
+    Recorded by 이상엽 at JYPE Studios
+    Mixed by 마스터키 @ 821 Sound
+    Mastered by 권남우 @ 821 Sound Mastering
+\n\n
+    7. LOVE is
+    '사랑은 늘 어렵지만 우리를 한층 성장시킨다'
+    사랑을 하고 싶지만 쉽게 마음을 주지 못하는 자신의 모습을 이야기하는 모던 팝 장르의 곡으로, 복잡하고 어려운 사랑이라는 감정을 통해 우리는 조금 더 성장한다는 메시지가 인상적이다.
+\n
+    Lyrics by 최지윤 (153/Joombas)
+    Composed by Harold Philippon, 김연서, Anne Judith Stokke Wik, Ronny Vidar Svendsen
+    Arranged by Alawn
+    Original publisher 153/Joombas Music Group, You Are Not Alawn Publishing (BMI), EKKO Music Rights (powered by CTGA), EKKO Music Rights Europe (powered by CTGA)
+    Sub publisher Sony Music Publishing, EKKO Music Rights (powered by CTGA), Copyright Control
+    Sessions
+    Bass, Synthesizer, Drums, computer programming by Alawn
+    Background vocals by 김연서
+    Vocal directed by 김연서
+    Digital edited by YUE
+    Recorded by 최혜진, 구혜진 at JYPE Studios
+    Mixed by Alawn
+    Mastered by 권남우 @ 821 Sound Mastering
+\n\n
+    8. Chillin' Chillin'
+    '어딘가로 떠나는 것이 너무나 소중해진 지금, ITZY와 함께 여행을 떠나보자!'
+    평범한 일상에서 벗어나 여행을 떠나는 순간의 들뜬 마음을 노래한 팝 장르의 곡이다. 함께 떠나온 친구에게 언제나 곁에서 위로가 되어주겠다는 마음을 전하는 이야기를 담고 있으며, 듣는 이로 하여금 어딘가로 훌쩍 떠나고 싶은 감상을 안긴다.
+\n
+    Lyrics by 윤예지
+    Composed by Young Chance, Shorelle, David Anthony Eames
+    Arranged by BANGKOK
+    Original publisher Makeumine works, EKKO Music Rights Europe (powered by CTGA), Create Future Publishing, Copyright Control
+    Sub publisher EKKO Music Rights (powered by CTGA), Warner Chappell Music Korea, Copyright Control
+    Sessions
+    All instruments and programming by BANGKOK
+    Background vocals by Sound Kim
+    Vocal directed by Young Chance, Shorelle
+    Digital edited by Young Chance, 강선영
+    Recorded by 박은정, 구혜진 at JYPE Studios
+    Mixed by 조씨아저씨 @ JoeLab (asst. 강동호)
+    Mastered by 권남우 @ 821 Sound Mastering
+\n\n
+    9. Mirror
+    '바쁜 일상에 지쳐 잊고 지냈던, 언제나 나를 바라봐 준 거울 속 나에게'
+    꿈을 향해 달려가느라 조금은 지쳐 있는 모두에게 ‘있는 그대로의 자신은 이미 충분히 훌륭하다’는 따뜻한 메시지로 마음을 어루만지는 팝 발라드 곡이다.
+\n
+    Lyrics by 조윤경
+    Composed by Sebastian Thott, Rosanna Ener
+    Arranged by Sebastian Thott
+    Original publisher EKKO Music Rights (powered by CTGA), Bad Butler Music, Sony ATV Scandinavia
+    Sub publisher Soundgraphics, Inc. admin by Music Cube, Inc, Sony ATV, Copyright Control
+    Sessions
+    All instruments and programming by Sebastian Thott
+    Background vocals by Sophia Pae
+    Vocal directed by Sophia Pae
+    Digital edited by 정모연 at Vibe Music Studio 606
+    Recorded by 구혜진 at JYPE Studios
+    Mixed by 임홍진 at JYPE Studios
+    Mastered by 권남우 @ 821 Sound Mastering
+    "
+            android:textColor="@color/flo_gray_7878"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detail_introduction_tv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

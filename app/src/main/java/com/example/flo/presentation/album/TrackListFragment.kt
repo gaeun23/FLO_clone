@@ -1,4 +1,4 @@
-package com.example.flo.presentation
+package com.example.flo.presentation.album
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,31 +7,20 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.flo.R
-import com.example.flo.databinding.FragmentAlbumBinding
-import com.example.flo.presentation.home.HomeFragment
-import com.example.flo.presentation.main.MainActivity
+import com.example.flo.databinding.FragmentTrackListBinding
 
-class AlbumFragment : Fragment() {
-    private lateinit var binding: FragmentAlbumBinding
+class TrackListFragment : Fragment() {
+    lateinit var binding: FragmentTrackListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAlbumBinding.inflate(inflater, container, false)
-        setBackBtnClickListener()
+        binding = FragmentTrackListBinding.inflate(inflater, container, false)
         setToastMsgTrack1()
         setMyMixBackground()
         return binding.root
-    }
-
-    private fun setBackBtnClickListener() {
-        binding.albumBtnBackIv.setOnClickListener {
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.main_frm, HomeFragment())
-                .commitAllowingStateLoss()
-        }
     }
 
     private fun setToastMsgTrack1() {

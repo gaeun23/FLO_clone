@@ -32,4 +32,14 @@
     <string name="album_playlist_all_play">전체듣기</string>
     <string name="singer_itzy">ITZY (있지)</string>
     <string name="album_playlist_title_ic">TITLE</string>
+
+    <!--Detail Fragment-->
+    <string name="detail_label_title">앨범명</string>
+    <string name="detail_label_artist">아티스트</string>
+    <string name="detail_label_release_company">발매사</string>
+    <string name="detail_label_main_company">기획사</string>
+    <string name="detail_label_introduction">앨범소개</string>
+
+    <!--Video Fragment-->
+    <string name="video_order_latest">최신순</string>
 </resources>

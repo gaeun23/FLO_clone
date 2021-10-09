@@ -9,7 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.flo.presentation.main.MainActivity
 import com.example.flo.R
 import com.example.flo.databinding.FragmentHomeBinding
-import com.example.flo.presentation.AlbumFragment
+import com.example.flo.presentation.album.AlbumFragment
 
 
 class HomeFragment : Fragment() {
