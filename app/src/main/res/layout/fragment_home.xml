@@ -342,17 +342,15 @@
             </LinearLayout>
         </HorizontalScrollView>
 
-
-        <ImageView
-            android:id="@+id/home_banner_top_iv"
-            android:layout_width="wrap_content"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/home_banner_view_pager"
+            android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_marginTop="28dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_home_viewpager_exp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_today_layout_hs" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_today_layout_hs">
+        </androidx.viewpager2.widget.ViewPager2>
 
         <TextView
             android:id="@+id/home_potcast_title_tv"
@@ -365,7 +363,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_banner_top_iv" />
+            app:layout_constraintTop_toBottomOf="@id/home_banner_view_pager" />
 
         <HorizontalScrollView
             android:id="@+id/home_potcast_layout"
@@ -581,7 +579,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="20dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_home_viewpager_exp2"
+            android:src="@drawable/img_home_viewpager_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_banner_discovery_cv" />
