@@ -1,4 +1,4 @@
-package com.example.flo.presentation
+package com.example.flo.presentation.main
 
 import android.content.Context
 import android.os.Bundle

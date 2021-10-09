@@ -1,13 +1,15 @@
-package com.example.flo.presentation
+package com.example.flo.presentation.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.flo.MainActivity
+import androidx.viewpager2.widget.ViewPager2
+import com.example.flo.presentation.main.MainActivity
 import com.example.flo.R
 import com.example.flo.databinding.FragmentHomeBinding
+import com.example.flo.presentation.album.AlbumFragment
 
 
 class HomeFragment : Fragment() {
@@ -20,6 +22,7 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         setGoToAlbumFrg()
+        setBannerAdapter()
         return binding.root
     }
 
@@ -29,5 +32,16 @@ class HomeFragment : Fragment() {
                 .replace(R.id.main_frm, AlbumFragment())
                 .commitAllowingStateLoss()
         }
+    }
+
+    private fun setBannerAdapter() {
+        val bannerAdapter = BannerViewPagerAdapter(this)
+        bannerAdapter.addFragment(BannerFragment(R.drawable.img_home_viewpager_exp))
+        bannerAdapter.addFragment(BannerFragment(R.drawable.img_home_viewpager_exp2))
+        bannerAdapter.addFragment(BannerFragment(R.drawable.img_home_viewpager_exp3))
+        bannerAdapter.addFragment(BannerFragment(R.drawable.img_home_viewpager_exp4))
+
+        binding.homeBannerViewPager.adapter = bannerAdapter
+        binding.homeBannerViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
     }
 }
