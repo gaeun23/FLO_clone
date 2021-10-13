@@ -5,100 +5,109 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/album_my_mix_layout"
-        android:layout_width="wrap_content"
+        android:id="@+id/album_menu_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:background="@drawable/border_gray_fill_20"
-        android:paddingHorizontal="28dp"
-        android:paddingVertical="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/album_my_mix_tv"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/album_my_mix_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:includeFontPadding="false"
-            android:text="@string/album_my_mix"
-            android:textColor="@color/black"
-            android:textSize="12sp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/border_gray_fill_20"
+            android:paddingHorizontal="28dp"
+            android:paddingVertical="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/album_my_mix_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/album_my_mix"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/album_my_mix_toggle_iv"
+                android:layout_width="40dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="4dp"
+                android:background="@drawable/btn_toggle_off"
+                android:button="@null"
+                android:checked="false"
+                app:layout_constraintBottom_toBottomOf="@id/album_my_mix_tv"
+                app:layout_constraintStart_toEndOf="@id/album_my_mix_tv"
+                app:layout_constraintTop_toTopOf="@id/album_my_mix_tv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/album_ic_playlist_select_iv"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginVertical="16dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/btn_playlist_select_off"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/album_my_mix_layout" />
 
-        <CheckBox
-            android:id="@+id/album_my_mix_toggle_iv"
-            android:layout_width="40dp"
-            android:layout_height="22dp"
-            android:layout_marginStart="4dp"
-            android:background="@drawable/btn_toggle_off"
-            android:button="@null"
-            android:checked="false"
-            app:layout_constraintBottom_toBottomOf="@id/album_my_mix_tv"
-            app:layout_constraintStart_toEndOf="@id/album_my_mix_tv"
-            app:layout_constraintTop_toTopOf="@id/album_my_mix_tv" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="@string/album_playlist_all_select"
+            android:textColor="@color/flo_black_4c4c"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/album_ic_playlist_select_iv"
+            app:layout_constraintStart_toEndOf="@id/album_ic_playlist_select_iv"
+            app:layout_constraintTop_toTopOf="@id/album_ic_playlist_select_iv" />
+
+        <ImageView
+            android:id="@+id/album_ic_playlist_play_iv"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/icon_browse_arrow_right"
+            app:layout_constraintEnd_toStartOf="@id/album_playlist_play_tv"
+            app:layout_constraintTop_toBottomOf="@id/album_my_mix_layout" />
+
+        <TextView
+            android:id="@+id/album_playlist_play_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/album_playlist_all_select"
+            android:textColor="@color/flo_black_4c4c"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/album_ic_playlist_play_iv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/album_ic_playlist_play_iv" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/album_ic_playlist_select_iv"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/btn_playlist_select_off"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/album_my_mix_layout" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="@string/album_playlist_all_select"
-        android:textColor="@color/flo_black_4c4c"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/album_ic_playlist_select_iv"
-        app:layout_constraintStart_toEndOf="@id/album_ic_playlist_select_iv"
-        app:layout_constraintTop_toTopOf="@id/album_ic_playlist_select_iv" />
-
-    <ImageView
-        android:id="@+id/album_ic_playlist_play_iv"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="2dp"
-        android:src="@drawable/icon_browse_arrow_right"
-        app:layout_constraintEnd_toStartOf="@id/album_playlist_play_tv"
-        app:layout_constraintTop_toBottomOf="@id/album_my_mix_layout" />
-
-    <TextView
-        android:id="@+id/album_playlist_play_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/album_playlist_all_select"
-        android:textColor="@color/flo_black_4c4c"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/album_ic_playlist_play_iv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/album_ic_playlist_play_iv" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
         android:overScrollMode="never"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/album_ic_playlist_select_iv">
+        app:layout_constraintTop_toBottomOf="@id/album_menu_layout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="wrap_content">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/album_track_01_layout"
@@ -136,7 +145,6 @@
                     app:layout_constraintBottom_toBottomOf="@id/album_track_01_title_tv"
                     app:layout_constraintStart_toEndOf="@id/album_track_01_num_tv"
                     app:layout_constraintTop_toTopOf="@id/album_track_01_title_tv" />
-
 
                 <TextView
                     android:id="@+id/album_track_01_title_tv"

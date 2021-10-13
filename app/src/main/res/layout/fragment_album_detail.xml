@@ -8,8 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="200dp">
+        android:layout_marginHorizontal="20dp">
 
         <LinearLayout
             android:id="@+id/detail_info_label"
@@ -114,7 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="80dp"
             android:lineSpacingExtra="4dp"
             android:text="K팝 4세대 대표 걸그룹' ITZY, 9월 24일 첫 정규 앨범 [CRAZY IN LOVE] 및 타이틀곡 'LOCO' 전 세계 동시 발매
 \n\n

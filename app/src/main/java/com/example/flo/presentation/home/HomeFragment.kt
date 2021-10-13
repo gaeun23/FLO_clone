@@ -10,6 +10,7 @@ import com.example.flo.presentation.main.MainActivity
 import com.example.flo.R
 import com.example.flo.databinding.FragmentHomeBinding
 import com.example.flo.presentation.album.AlbumFragment
+import com.google.android.material.tabs.TabLayoutMediator
 
 
 class HomeFragment : Fragment() {
@@ -23,6 +24,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         setGoToAlbumFrg()
         setBannerAdapter()
+        setPanelAdapter()
         return binding.root
     }
 
@@ -43,5 +45,13 @@ class HomeFragment : Fragment() {
 
         binding.homeBannerViewPager.adapter = bannerAdapter
         binding.homeBannerViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+    }
+
+    private fun setPanelAdapter() {
+        val panelAdapter = PanelViewPagerAdapter(this)
+        binding.homePanelVp.adapter = panelAdapter
+        binding.homePanelVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+        TabLayoutMediator(binding.homePanelTb, binding.homePanelVp) { _, _ -> }.attach()
     }
 }
