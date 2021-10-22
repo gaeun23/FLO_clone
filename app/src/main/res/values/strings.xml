@@ -40,9 +40,6 @@
     <string name="detail_label_main_company">기획사</string>
     <string name="detail_label_introduction">앨범소개</string>
 
-    <!--Video Fragment-->
-    <string name="video_order_latest">최신순</string>
-
     <!--Locker Fragment-->
     <string name="locker_title">보관함</string>
     <string name="locker_sign_in">로그인</string>
@@ -50,4 +47,10 @@
     <string name="locker_song_file">음악파일</string>
     <string name="locker_song_saved_none">저장한 곡이 없습니다.</string>
     <string name="locker_song_file_none">음악파일이 없습니다.</string>
+
+    <!--Order Dialog-->
+    <string name="dialog_order_title">정렬 순서 변경</string>
+    <string name="dialog_order_latest">최신순</string>
+    <string name="dialog_order_popular">인기순</string>
+    <string name="dialog_order_abc">가나다순</string>
 </resources>
