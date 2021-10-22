@@ -1,7 +1,12 @@
 package com.example.flo.presentation.main
 
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.WindowInsetsController
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.flo.R
@@ -20,6 +25,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initNavigation()
         setPlayerClickListener()
+//
+//        val window = window
+//        window.setFlags(
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+//            window.insetsController?.setSystemBarsAppearance(
+//                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
+//                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+//            )
+//        }
 
         binding.mainBnv.setOnItemSelectedListener {
             when (it.itemId) {
