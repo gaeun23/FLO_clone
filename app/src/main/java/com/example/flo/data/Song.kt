@@ -1,6 +1,11 @@
 package com.example.flo.data
 
 data class Song(
-    val title: String,
-    val singer: String
+    var title: String = "",
+    var singer: String = "",
+    var playTime: Int = 0,
+    var isPlaying: Boolean = false,
+    var currentMillis: Int = 0,
+    var music: String = "",
+    var second: Int = 0
 )

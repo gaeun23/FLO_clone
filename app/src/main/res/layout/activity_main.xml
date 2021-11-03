@@ -19,17 +19,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F9F9F9"
-        android:paddingVertical="5dp"
+        android:paddingBottom="5dp"
         app:layout_constraintBottom_toTopOf="@id/main_bnv">
 
+        <SeekBar
+            android:id="@+id/main_progressbar_sb"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingStart="0dp"
+            android:paddingTop="0dp"
+            android:layout_marginTop="0dp"
+            android:paddingBottom="0dp"
+            android:paddingEnd="0dp"
+            android:background="@null"
+            android:max="1000"
+            android:progress="500"
+            android:splitTrack="false"
+            android:thumb="@android:color/transparent"
+            android:progressDrawable="@drawable/seekbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <LinearLayout
+            android:id="@+id/main_mini_player_info_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:orientation="vertical"
+            android:layout_marginTop="3dp"
+            android:paddingEnd="120dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/main_progressbar_sb">
 
             <TextView
                 android:id="@+id/main_miniplayer_title_tv"
@@ -45,17 +67,15 @@
                 android:layout_height="wrap_content"
                 android:text="아이유 (IU)"
                 android:textSize="12sp" />
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/main_mini_player_info_layout"
             app:layout_constraintEnd_toEndOf="parent"
-
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@id/main_mini_player_info_layout">
 
             <ImageView
                 android:layout_width="40dp"
@@ -63,13 +83,13 @@
                 android:src="@drawable/btn_miniplayer_previous" />
 
             <ImageView
-                android:id="@+id/main_miniplayer_btn"
+                android:id="@+id/main_btn_mini_play_iv"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/btn_miniplayer_play" />
 
             <ImageView
-                android:id="@+id/main_pause_btn"
+                android:id="@+id/main_btn_mini_pause_iv"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/btn_miniplay_mvpause"
