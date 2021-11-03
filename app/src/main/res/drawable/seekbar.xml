@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@android:id/background"
+        android:drawable="@drawable/border_gray_fill_1"/>
+    <item
+        android:id="@android:id/progress">
+        <scale
+            android:drawable="@drawable/border_blue_fill_1"
+            android:scaleWidth="100%" />
+    </item>
+</layer-list>

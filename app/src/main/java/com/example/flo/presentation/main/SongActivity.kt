@@ -1,43 +1,113 @@
 package com.example.flo.presentation.main
 
-import android.content.Context
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.flo.R
+import com.example.flo.data.Song
 import com.example.flo.databinding.ActivitySongBinding
+import com.example.flo.presentation.util.imgRadiusUtil
+import com.google.gson.Gson
 
 class SongActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySongBinding
+    private lateinit var player: Player
+    private val song: Song = Song()
+    private var mediaPlayer: MediaPlayer? = null
+    private var gson: Gson = Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySongBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setImgRadius()
-        setSongText()
+
+        initSong()
+
+        // song.currentMillis = (binding.songProgressbarSb.progress) * (song.playTime)
+        player = Player(song.playTime, song.isPlaying)
+        player.start()
+        binding.songProgressbarSb.setOnSeekBarChangeListener(SeekBarListener())
+
+        imgRadiusUtil(R.drawable.img_song_album_art, binding.songAlbumArtIv)
         setDownBtnClickListener()
         setPlayBtnClickListener()
         setRepeatBtnClickListener()
         setRandomBtnClickListener()
     }
 
-    private fun setImgRadius() {
-        Glide.with(this)
-            .load(R.drawable.img_song_album_art)
-            .transform(CenterCrop(), RoundedCorners(20))
-            .into(binding.songAlbumArtIv)
-    }
+    private fun initSong() {
+        if (intent.hasExtra("title") && intent.hasExtra("singer") && intent.hasExtra("playTime") && intent.hasExtra(
+                "isPlaying"
+            ) && intent.hasExtra("music") && intent.hasExtra("second")
+        ) {
+            song.title = intent.getStringExtra("title")!!
+            song.singer = intent.getStringExtra("singer")!!
+            song.isPlaying = intent.getBooleanExtra("isPlaying", false)
+            song.playTime = intent.getIntExtra("playTime", 0)
+            song.music = intent.getStringExtra("music")!!
+            song.second = intent.getIntExtra("second", 0)
+            val music = resources.getIdentifier(song.music, "raw", this.packageName)
 
-    private fun setSongText() {
-        if (intent.hasExtra("title") && intent.hasExtra("singer")) {
-            binding.songMainTitleTv.text = intent.getStringExtra("title")
-            binding.songSingerTv.text = intent.getStringExtra("singer")
+            binding.songMainTitleTv.text = song.singer
+            binding.songSingerTv.text = song.title
+            binding.songPlaytimeEndTv.text = String.format(
+                "%02d:%02d",
+                song.playTime / 60,
+                song.playTime % 60
+            )
+            setPlayerStatus(song.isPlaying)
+            mediaPlayer = MediaPlayer.create(this, music)
         }
     }
+
+    inner class Player(
+        private val playTime: Int,
+        var isPlaying: Boolean
+    ) : Thread() {
+        var millis = 0
+        override fun run() {
+            try {
+                while (true) {
+//                    Log.d("재생-시간", playTime.toString())
+//                    Log.d("재생-시간초", millis.toString())
+//                    Log.d("재생-상태", isPlaying.toString())
+                    if (millis / 1000 >= playTime) {
+                        break
+                    }
+                    if (isPlaying) {
+                        sleep(1)
+                        millis++
+                        runOnUiThread {
+                            binding.songProgressbarSb.progress = millis / playTime
+                            binding.songPlaytimeStartTv.text =
+                                String.format("%02d:%02d", millis / 1000 / 60, millis / 1000 % 60)
+                        }
+                    }
+                }
+            } catch (e: InterruptedException) {
+                Log.d("Thread State", "end")
+            }
+        }
+    }
+
+    inner class SeekBarListener : SeekBar.OnSeekBarChangeListener {
+        override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+            player.millis = progress * (song.playTime)
+            binding.songPlaytimeStartTv.text =
+                String.format("%02d:%02d", player.millis / 1000 / 60, player.millis / 1000 % 60)
+
+        }
+
+        override fun onStartTrackingTouch(seekBar: SeekBar?) {
+        }
+
+        override fun onStopTrackingTouch(seekBar: SeekBar?) {
+        }
+    }
+
 
     private fun setDownBtnClickListener() {
         binding.songBtnDownIb.setOnClickListener {
@@ -47,10 +117,17 @@ class SongActivity : AppCompatActivity() {
 
     private fun setPlayBtnClickListener() {
         binding.songBtnPlayIv.setOnClickListener {
-            setPlayerStatus(false)
+            setPlayerStatus(true)
+            player.isPlaying = true
+            song.isPlaying = true
+
+            mediaPlayer?.start()
         }
         binding.songBtnPauseIv.setOnClickListener {
-            setPlayerStatus(true)
+            setPlayerStatus(false)
+            player.isPlaying = false
+            song.isPlaying = false
+            mediaPlayer?.pause()
         }
     }
 
@@ -76,12 +153,12 @@ class SongActivity : AppCompatActivity() {
         with(binding) {
             when (isPlaying) {
                 true -> {
-                    songBtnPlayIv.visibility = View.VISIBLE
-                    songBtnPauseIv.visibility = View.GONE
-                }
-                false -> {
                     songBtnPlayIv.visibility = View.GONE
                     songBtnPauseIv.visibility = View.VISIBLE
+                }
+                false -> {
+                    songBtnPlayIv.visibility = View.VISIBLE
+                    songBtnPauseIv.visibility = View.GONE
                 }
             }
         }
@@ -115,5 +192,29 @@ class SongActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onPause() {
+        Log.d("생명주기", "onPause()")
+        super.onPause()
+        mediaPlayer?.pause()
+        player.isPlaying = false
+        song.isPlaying = false
+        song.second = (binding.songProgressbarSb.progress * song.playTime) / 1000
+        setPlayerStatus(false)
+
+        val sharedPreferences = getSharedPreferences("song", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val json = gson.toJson(song)
+        editor.putString("song", json)
+        editor.apply()
+    }
+
+    override fun onDestroy() {
+        Log.d("생명주기", "onDestroy()")
+        super.onDestroy()
+        player.interrupt()
+        mediaPlayer?.release()
+        mediaPlayer = null
     }
 }

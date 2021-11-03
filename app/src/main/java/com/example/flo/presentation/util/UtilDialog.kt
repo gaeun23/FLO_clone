@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.example.flo.R
 import com.example.flo.databinding.DialogOrderSetBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class UtilDialog : DialogFragment() {
+class UtilDialog : BottomSheetDialogFragment() {
     private var _binding: DialogOrderSetBinding? = null
     val binding get() = _binding ?: error("error")
 

@@ -10,13 +10,14 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.BottomNaviTemplate">
-        <activity android:name="com.example.flo.presentation.main.MainActivity">
+        <activity android:name=".presentation.main.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.flo.presentation.main.MainActivity" />
         <activity android:name="com.example.flo.presentation.main.SongActivity" />
     </application>
 </manifest>
