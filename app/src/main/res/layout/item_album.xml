@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/album_item_img_iv"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:layout_marginEnd="12dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_today_exp_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/album_item_title_tv"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="두 번째 남편 OST Part.1"
+        android:maxLines="2"
+        android:layout_marginEnd="12dp"
+        android:ellipsize="end"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/album_item_img_iv"
+        app:layout_constraintTop_toBottomOf="@id/album_item_img_iv" />
+
+    <TextView
+        android:id="@+id/album_item_singer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="ITZY (있지)"
+        android:textColor="@color/flo_gray_9d9d"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@id/album_item_title_tv"
+        app:layout_constraintTop_toBottomOf="@id/album_item_title_tv" />
+</androidx.constraintlayout.widget.ConstraintLayout>
