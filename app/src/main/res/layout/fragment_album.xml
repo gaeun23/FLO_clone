@@ -71,10 +71,11 @@
 
                     <TextView
                         android:id="@+id/album_main_title_tv"
-                        android:layout_width="wrap_content"
+                        android:layout_width="270dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
-                        android:text="CRAZY IN LOVE"
+                        android:text="Every Day Is Christmas (Snowman Deluxe Edition)"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold"

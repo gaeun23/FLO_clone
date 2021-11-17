@@ -18,7 +18,7 @@ class SongFileFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentLockerSongFileBinding.inflate(inflater, container, false)
         setTrackListAdapter()
         return binding.root

@@ -17,7 +17,7 @@ class SavedSongFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentLockerSongSavedBinding.inflate(inflater, container, false)
         setTrackListAdapter()
         return binding.root
