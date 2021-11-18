@@ -22,8 +22,9 @@
         android:layout_marginTop="3dp"
         android:ellipsize="end"
         android:includeFontPadding="false"
+        android:maxWidth="260dp"
         android:maxLines="1"
-        android:text="SWIPE"
+        android:text="어떻게 이별까지 사랑하겠어, 널 사랑하는 거ㅇㅇㅇㅇ지"
         android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/item_track_song_cover_iv"
@@ -42,6 +43,7 @@
         app:layout_constraintTop_toBottomOf="@id/item_track_song_title_tv" />
 
     <ImageView
+        android:id="@+id/item_track_btn_play_iv"
         android:layout_width="22dp"
         android:layout_height="22dp"
         android:layout_marginEnd="8dp"
