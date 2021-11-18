@@ -12,7 +12,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class LockerFragment : Fragment() {
     lateinit var binding: FragmentLockerBinding
-    private val lockerViewPagerText = arrayListOf("저장된 곡", "음악파일")
+    private val lockerViewPagerText = arrayListOf("좋아요", "음악파일")
 
     override fun onCreateView(
         inflater: LayoutInflater,
