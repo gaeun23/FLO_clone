@@ -9,9 +9,8 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.flo.data.Album
 import com.example.flo.databinding.ItemAlbumBinding
 
-class AlbumListAdapter : RecyclerView.Adapter<AlbumListAdapter.AlbumListViewHolder>() {
-
-    val albumList = mutableListOf<Album>()
+class AlbumListAdapter(private val albumList: ArrayList<Album>) :
+    RecyclerView.Adapter<AlbumListAdapter.AlbumListViewHolder>() {
     private lateinit var albumItemClickListener: AlbumItemClickListener
 
     //클릭 인터페이스

@@ -19,5 +19,7 @@
         </activity>
         <activity android:name="com.example.flo.presentation.main.MainActivity" />
         <activity android:name="com.example.flo.presentation.main.SongActivity" />
+        <activity android:name=".presentation.sign.SignInActivity" />
+        <activity android:name=".presentation.sign.SignUpActivity" />
     </application>
 </manifest>

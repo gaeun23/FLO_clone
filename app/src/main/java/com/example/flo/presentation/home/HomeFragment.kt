@@ -8,16 +8,17 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.flo.R
 import com.example.flo.data.Album
+import com.example.flo.data.SongDataBase
 import com.example.flo.databinding.FragmentHomeBinding
 import com.example.flo.presentation.album.AlbumFragment
 import com.example.flo.presentation.main.MainActivity
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
 
-
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private val albumListAdapter = AlbumListAdapter()
+    private var albums = ArrayList<Album>()
+    private lateinit var songDB: SongDataBase
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,27 +27,18 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         setAlbumAdapter()
-        setGoToAlbumFrg()
         setBannerAdapter()
         setPanelAdapter()
         return binding.root
     }
 
     private fun setAlbumAdapter() {
+        songDB = SongDataBase.getInstance(requireContext())!!
+        albums.addAll(songDB.albumDao().getAlbums())
+        val albumListAdapter = AlbumListAdapter(albums)
+
         binding.homeAlbumTodayRv.adapter = albumListAdapter
 
-        albumListAdapter.albumList.addAll(
-            listOf(
-                Album(R.drawable.img_today_exp_1, "LOCO", "ITZY(있지)"),
-                Album(R.drawable.img_today_exp_2, "그날 찬란했던 우리", "톤 (TONE)"),
-                Album(R.drawable.img_today_exp_3, "두 번째 남편 OST Part.1", "리즈 (Leeds)"),
-                Album(R.drawable.img_today_exp_4, "Every Day Is Christmas (Snowman Deluxe Edition)", "Sia")
-            )
-        )
-        albumListAdapter.notifyDataSetChanged()
-    }
-
-    private fun setGoToAlbumFrg() {
         albumListAdapter.setAlbumItemClickListener(object :
             AlbumListAdapter.AlbumItemClickListener {
 

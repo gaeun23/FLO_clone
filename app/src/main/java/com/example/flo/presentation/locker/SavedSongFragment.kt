@@ -29,16 +29,16 @@ class SavedSongFragment : Fragment() {
     private fun setTrackListAdapter() {
         binding.trackListRv.adapter = trackListAdapter
 
-        trackListAdapter.addItem(songDB.SongDao().getLikedSongs(true) as ArrayList)
+        trackListAdapter.addItem(songDB.songDao().getLikedSongs(true) as ArrayList)
         trackListAdapter.setSongItemClickListener(object : TrackListAdapter.SongItemClickListener {
             override fun onRemoveClick(songId: Int) {
-                songDB.SongDao().updateLike(false, songId)
+                songDB.songDao().updateLike(false, songId)
             }
         })
     }
 
     private fun setEmptyView() {
-        when (songDB.SongDao().getLikedSongs(true).isEmpty()) {
+        when (songDB.songDao().getLikedSongs(true).isEmpty()) {
             true -> binding.trackListNoneMessageTv.visibility = View.VISIBLE
             else -> binding.trackListNoneMessageTv.visibility = View.GONE
         }
