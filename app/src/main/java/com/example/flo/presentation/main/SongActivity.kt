@@ -1,6 +1,5 @@
 package com.example.flo.presentation.main
 
-import android.app.PendingIntent.getActivity
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
@@ -67,7 +66,7 @@ class SongActivity : AppCompatActivity() {
 
     private fun initPlayList() {
         songDB = SongDataBase.getInstance(this)!!
-        songs.addAll(songDB.SongDao().getSongs())
+        songs.addAll(songDB.songDao().getSongs())
     }
 
     private fun initSong() {
@@ -169,7 +168,7 @@ class SongActivity : AppCompatActivity() {
 
     private fun setLike(isLike: Boolean) {
         songs[nowPos].isLike = !isLike
-        songDB.SongDao().updateLike(!isLike, songs[nowPos].id)
+        songDB.songDao().updateLike(!isLike, songs[nowPos].id)
 
         when (isLike) {
             true -> binding.songBtnMyLikeIb.setImageResource(R.drawable.ic_my_like_off)

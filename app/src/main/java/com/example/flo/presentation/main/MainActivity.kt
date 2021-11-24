@@ -1,15 +1,14 @@
 package com.example.flo.presentation.main
 
 import android.content.Intent
-import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.WindowInsetsController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.flo.R
+import com.example.flo.data.Album
 import com.example.flo.data.Song
 import com.example.flo.data.SongDataBase
 import com.example.flo.databinding.ActivityMainBinding
@@ -17,7 +16,6 @@ import com.example.flo.presentation.home.HomeFragment
 import com.example.flo.presentation.*
 import com.example.flo.presentation.LookFragment
 import com.example.flo.presentation.locker.LockerFragment
-import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -29,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initNavigation()
         initSong()
+        inputDummyAlbums()
         inputDummySongs()
         setPlayBtnClickListener()
 
@@ -69,9 +68,9 @@ class MainActivity : AppCompatActivity() {
         val songDB = SongDataBase.getInstance(this)!!
 
         song = if (songId == 0) {
-            songDB.SongDao().getSong(1)
+            songDB.songDao().getSong(1)
         } else {
-            songDB.SongDao().getSong(songId)
+            songDB.songDao().getSong(songId)
         }
         setMiniPlayerInfo(song)
     }
@@ -103,13 +102,55 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun inputDummyAlbums() {
+        val albumDB = SongDataBase.getInstance(this)!!
+        val albums = albumDB.albumDao().getAlbums()
+
+        if (albums.isNotEmpty()) return
+
+        albumDB.albumDao().insert(
+            Album(1, R.drawable.img_today_exp_1, "LOCO", "ITZY(있지)", false, "2021.10.01 | 싱글 | 댄스")
+        )
+
+        albumDB.albumDao().insert(
+            Album(
+                2,
+                R.drawable.img_today_exp_2,
+                "그날 찬란했던 우리",
+                "톤 (TONE)",
+                false,
+                "2021.09.11 | 정규 | 발라드"
+            )
+        )
+        albumDB.albumDao().insert(
+            Album(
+                3,
+                R.drawable.img_today_exp_3,
+                "두 번째 남편 OST Part.1",
+                "리즈 (Leeds)",
+                false,
+                "2021.10.17 | 싱글 | OST"
+            )
+        )
+        albumDB.albumDao().insert(
+            Album(
+                4,
+                R.drawable.img_today_exp_4,
+                "Every Day Is Christmas (Snowman Deluxe Edition)",
+                "Sia",
+                false,
+                "2019.10.01 | 싱글 | POP"
+            )
+        )
+    }
+
     private fun inputDummySongs() {
         val songDB = SongDataBase.getInstance(this)!!
-        val songs = songDB.SongDao().getSongs()
+        val songs = songDB.songDao().getSongs()
 
         if (songs.isNotEmpty()) return
 
-        songDB.SongDao().insert(
+        songDB.songDao().insert(
             Song(
                 "라일락",
                 "아이유",
@@ -121,7 +162,7 @@ class MainActivity : AppCompatActivity() {
                 false
             )
         )
-        songDB.SongDao().insert(
+        songDB.songDao().insert(
             Song(
                 "시간을 갖자",
                 "AKMU(악뮤)",
@@ -133,7 +174,7 @@ class MainActivity : AppCompatActivity() {
                 false
             )
         )
-        songDB.SongDao().insert(
+        songDB.songDao().insert(
             Song(
                 "Day 1 ◑",
                 "HONNE (혼네)",
@@ -145,7 +186,7 @@ class MainActivity : AppCompatActivity() {
                 false
             )
         )
-        songDB.SongDao().insert(
+        songDB.songDao().insert(
             Song(
                 "여름밤에 우린",
                 "스탠딩 에그(Standing Egg)",
@@ -157,7 +198,7 @@ class MainActivity : AppCompatActivity() {
                 false
             )
         )
-        songDB.SongDao().insert(
+        songDB.songDao().insert(
             Song(
                 "밤에 잠이 안 올 때",
                 "윤딴딴",
@@ -169,7 +210,7 @@ class MainActivity : AppCompatActivity() {
                 false
             )
         )
-        songDB.SongDao().insert(
+        songDB.songDao().insert(
             Song(
                 "Butter",
                 "방탄소년단",
