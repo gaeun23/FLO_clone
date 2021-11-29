@@ -1,6 +1,6 @@
 package com.example.flo.data
 
-data class ResponseAlbumData(
+data class ResponseSongData(
     val code: Int,
     val isSuccess: Boolean,
     val message: String,
@@ -8,12 +8,14 @@ data class ResponseAlbumData(
 )
 
 data class Result(
-    val albums: List<AlbumData>
+    val songs: List<SongData>
 )
 
-data class AlbumData(
+data class SongData(
+    val songIdx: Int,
     val albumIdx: Int,
     val coverImgUrl: String,
     val singer: String,
     val title: String
 )
+

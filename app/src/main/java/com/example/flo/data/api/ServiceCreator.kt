@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.flo.data.Auth
 import com.example.flo.data.ResponseSignData
 import com.example.flo.data.User
+import com.example.flo.data.api.view.LoginView
 import com.example.flo.data.api.view.SignUpView
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,6 +21,7 @@ object ServiceCreator {
         .build()
 
     val signService: SignService = retrofit.create(SignService::class.java)
+    val musicService: MusicService = retrofit.create(MusicService::class.java)
 }
 
 class AuthService {
@@ -93,10 +95,4 @@ class AuthService {
             }
         })
     }
-}
-
-interface LoginView {
-    fun onLoginLoading()
-    fun onLoginSuccess(auth: Auth)
-    fun onLoginFailure(code: Int, message: String)
 }

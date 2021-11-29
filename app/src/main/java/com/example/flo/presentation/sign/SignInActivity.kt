@@ -2,16 +2,13 @@ package com.example.flo.presentation.sign
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flo.R
 import com.example.flo.data.Auth
-import com.example.flo.data.SongDataBase
 import com.example.flo.data.User
 import com.example.flo.data.api.AuthService
-import com.example.flo.data.api.LoginView
+import com.example.flo.data.api.view.LoginView
 import com.example.flo.databinding.ActivitySignInBinding
 import com.example.flo.presentation.main.MainActivity
 import com.example.flo.presentation.util.KeyBoardUtil
@@ -92,23 +89,6 @@ class SignInActivity : AppCompatActivity(), LoginView {
             val authService = AuthService()
             authService.setLoginView(this)
             authService.login(User(email, pw, ""))
-
-//            val songDB = SongDataBase.getInstance(this)!!
-//            val user = songDB.userDao().getUser(email, pw)
-//
-//            val users = songDB.userDao().getUsers()
-//            Log.d("유저정보", users.toString())
-//
-//            when (user == null) {
-//                true -> Toast.makeText(this, "회원정보가 존재하지 않습니다", Toast.LENGTH_SHORT).show()
-//                else -> {
-//                    user.let {
-//                        Log.d("LOGIN", "userId: ${user.id}, $user")
-//                        saveJwt(user.id)
-//                        startActivity(Intent(this, MainActivity::class.java))
-//                    }
-//                }
-//            }
         }
     }
 
