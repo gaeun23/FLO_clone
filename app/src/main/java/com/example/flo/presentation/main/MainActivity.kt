@@ -14,7 +14,7 @@ import com.example.flo.data.SongDataBase
 import com.example.flo.databinding.ActivityMainBinding
 import com.example.flo.presentation.home.HomeFragment
 import com.example.flo.presentation.*
-import com.example.flo.presentation.LookFragment
+import com.example.flo.presentation.look.LookFragment
 import com.example.flo.presentation.locker.LockerFragment
 
 class MainActivity : AppCompatActivity() {

@@ -1,16 +1,16 @@
 package com.example.flo.presentation.sign
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flo.R
-import com.example.flo.data.SongDataBase
 import com.example.flo.data.User
+import com.example.flo.data.api.AuthService
+import com.example.flo.data.api.view.SignUpView
 import com.example.flo.databinding.ActivitySignUpBinding
 import com.example.flo.presentation.util.KeyBoardUtil
 
-class SignUpActivity : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity(), SignUpView {
     private lateinit var binding: ActivitySignUpBinding
     private var emailValidity: Boolean = false
     private var passwordValidity: Boolean = false
@@ -34,8 +34,9 @@ class SignUpActivity : AppCompatActivity() {
         val email: String =
             binding.signUpEmailTv.text.toString() + "@" + binding.signUpDomainTv.text.toString()
         val password: String = binding.signUpPasswordTv.text.toString()
+        val name: String = binding.signUpNameTv.text.toString()
 
-        return User(email, password)
+        return User(email, password, name)
     }
 
     private fun setSignUpBtnClickListener() {
@@ -76,13 +77,28 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         if (passwordValidity && emailValidity) {
-            val userDB = SongDataBase.getInstance(this)!!
-            userDB.userDao().insert(getUser())
+            val authService = AuthService()
+            authService.setSignUpView(this)
+            authService.signUp(getUser())
+        }
+    }
 
-            val users = userDB.userDao().getUsers()
-            Log.d("유저정보", users.toString())
-            finish()
-            KeyBoardUtil.hide(this)
+    override fun onSignUpLoading() {
+        binding.signUpLoadingPb.visibility = View.VISIBLE
+    }
+
+    override fun onSignUpSuccess() {
+        binding.signUpLoadingPb.visibility = View.GONE
+        finish()
+    }
+
+    override fun onSignUpFailure(code: Int, message: String) {
+        binding.signUpLoadingPb.visibility = View.GONE
+        when (code) {
+            2016, 2017 -> {
+                binding.signUpEmailCheckMsgTv.visibility = View.VISIBLE
+                binding.signUpEmailCheckMsgTv.text = message
+            }
         }
     }
 }

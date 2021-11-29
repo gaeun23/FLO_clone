@@ -2,17 +2,19 @@ package com.example.flo.presentation.sign
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flo.R
-import com.example.flo.data.SongDataBase
+import com.example.flo.data.Auth
+import com.example.flo.data.User
+import com.example.flo.data.api.AuthService
+import com.example.flo.data.api.view.LoginView
 import com.example.flo.databinding.ActivitySignInBinding
 import com.example.flo.presentation.main.MainActivity
 import com.example.flo.presentation.util.KeyBoardUtil
+import com.example.flo.presentation.util.SharedPreferenceController
 
-class SignInActivity : AppCompatActivity() {
+class SignInActivity : AppCompatActivity(), LoginView {
     private lateinit var binding: ActivitySignInBinding
     private var emailValidity: Boolean = false
     private var passwordValidity: Boolean = false
@@ -84,30 +86,30 @@ class SignInActivity : AppCompatActivity() {
                 binding.signInEmailTv.text.toString() + "@" + binding.signInDomainTv.text.toString()
             val pw: String = binding.signInPasswordTv.text.toString()
 
-            val songDB = SongDataBase.getInstance(this)!!
-            val user = songDB.userDao().getUser(email, pw)
-
-            val users = songDB.userDao().getUsers()
-            Log.d("유저정보", users.toString())
-
-            when (user == null) {
-                true -> Toast.makeText(this, "회원정보가 존재하지 않습니다", Toast.LENGTH_SHORT).show()
-                else -> {
-                    user.let {
-                        Log.d("LOGIN", "userId: ${user.id}, $user")
-                        saveJwt(user.id)
-                        startActivity(Intent(this, MainActivity::class.java))
-                    }
-                }
-            }
+            val authService = AuthService()
+            authService.setLoginView(this)
+            authService.login(User(email, pw, ""))
         }
     }
 
-    private fun saveJwt(jwt: Int) {
-        val sharedPreferences = getSharedPreferences("auth", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
+    override fun onLoginLoading() {
+        binding.signInLoadingPb.visibility = View.VISIBLE
+    }
 
-        editor.putInt("jwt", jwt)
-        editor.apply()
+    override fun onLoginSuccess(auth: Auth) {
+        binding.signInLoadingPb.visibility = View.GONE
+        SharedPreferenceController.saveJwt(this@SignInActivity, auth.jwt)
+        SharedPreferenceController.saveUserIdx(this@SignInActivity, auth.userIdx)
+        startActivity(Intent(this, MainActivity::class.java))
+    }
+
+    override fun onLoginFailure(code: Int, message: String) {
+        binding.signInLoadingPb.visibility = View.GONE
+        when (code) {
+            2015, 2019, 3014 -> {
+                binding.signInEmailCheckMsgTv.visibility = View.VISIBLE
+                binding.signInEmailCheckMsgTv.text = message
+            }
+        }
     }
 }

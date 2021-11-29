@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/white"
         android:id="@+id/look_category_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/look_title_tv"
@@ -46,8 +46,8 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
                     android:background="@drawable/look_category_btn_selector"
                     android:button="@null"
                     android:checked="true"
@@ -124,13 +124,13 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:fillViewport="true"
         android:overScrollMode="never"
         android:scrollbars="none"
-        android:fillViewport="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/look_category_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/look_category_layout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -162,14 +162,15 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/look_flo_chart_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/border_white_fill_10"
                 android:elevation="5dp"
                 android:paddingHorizontal="16dp"
-                android:paddingVertical="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/look_chart_title_tv">
@@ -227,345 +228,18 @@
                     app:layout_constraintStart_toStartOf="@id/look_flo_chart_title_tv"
                     app:layout_constraintTop_toBottomOf="@id/look_flo_chart_title_tv" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/look_flo_chart_01_layout"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/look_flo_chart_rv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/look_flo_chart_info_tv">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/look_flo_chart_exp_01_cv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="6dp"
-                        app:cardElevation="0dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/img_album_exp2" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/look_flo_chart_lank_01_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="6dp"
-                        android:text="1"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@id/look_flo_chart_exp_01_cv"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/look_flo_chart_title_01_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:text="라일락"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@id/look_flo_chart_lank_01_tv"
-                        app:layout_constraintTop_toTopOf="@id/look_flo_chart_lank_01_tv" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="아이유 (IU)"
-                        android:textColor="@color/flo_gray_9d9d"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toStartOf="@id/look_flo_chart_title_01_tv"
-                        app:layout_constraintTop_toBottomOf="@id/look_flo_chart_title_01_tv" />
-
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/btn_miniplayer_play"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/look_flo_chart_02_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/look_flo_chart_01_layout">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/look_flo_chart_exp_02_cv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="6dp"
-                        app:cardElevation="0dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/img_album_exp2" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/look_flo_chart_lank_02_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="6dp"
-                        android:text="2"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@id/look_flo_chart_exp_02_cv"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/look_flo_chart_title_02_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:text="라일락"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@id/look_flo_chart_lank_02_tv"
-                        app:layout_constraintTop_toTopOf="@id/look_flo_chart_lank_02_tv" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="아이유 (IU)"
-                        android:textColor="@color/flo_gray_9d9d"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toStartOf="@id/look_flo_chart_title_02_tv"
-                        app:layout_constraintTop_toBottomOf="@id/look_flo_chart_title_02_tv" />
-
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/btn_miniplayer_play"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/look_flo_chart_03_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/look_flo_chart_02_layout">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/look_flo_chart_exp_03_cv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="6dp"
-                        app:cardElevation="0dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/img_album_exp2" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/look_flo_chart_lank_03_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="6dp"
-                        android:text="3"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@id/look_flo_chart_exp_03_cv"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/look_flo_chart_title_03_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:text="라일락"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@id/look_flo_chart_lank_03_tv"
-                        app:layout_constraintTop_toTopOf="@id/look_flo_chart_lank_03_tv" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="아이유 (IU)"
-                        android:textColor="@color/flo_gray_9d9d"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toStartOf="@id/look_flo_chart_title_03_tv"
-                        app:layout_constraintTop_toBottomOf="@id/look_flo_chart_title_03_tv" />
-
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/btn_miniplayer_play"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/look_flo_chart_04_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/look_flo_chart_03_layout">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/look_flo_chart_exp_04_cv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="6dp"
-                        app:cardElevation="0dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/img_album_exp2" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/look_flo_chart_lank_04_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="6dp"
-                        android:text="4"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@id/look_flo_chart_exp_04_cv"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/look_flo_chart_title_04_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:text="라일락"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@id/look_flo_chart_lank_04_tv"
-                        app:layout_constraintTop_toTopOf="@id/look_flo_chart_lank_04_tv" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="아이유 (IU)"
-                        android:textColor="@color/flo_gray_9d9d"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toStartOf="@id/look_flo_chart_title_04_tv"
-                        app:layout_constraintTop_toBottomOf="@id/look_flo_chart_title_04_tv" />
-
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/btn_miniplayer_play"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/look_flo_chart_05_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/look_flo_chart_04_layout">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/look_flo_chart_exp_05_cv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="6dp"
-                        app:cardElevation="0dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/img_album_exp2" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/look_flo_chart_lank_05_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="6dp"
-                        android:text="5"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@id/look_flo_chart_exp_05_cv"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/look_flo_chart_title_05_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:text="라일락"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@id/look_flo_chart_lank_05_tv"
-                        app:layout_constraintTop_toTopOf="@id/look_flo_chart_lank_05_tv" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="아이유 (IU)"
-                        android:textColor="@color/flo_gray_9d9d"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toStartOf="@id/look_flo_chart_title_05_tv"
-                        app:layout_constraintTop_toBottomOf="@id/look_flo_chart_title_05_tv" />
-
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/btn_miniplayer_play"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:layout_constraintTop_toBottomOf="@id/look_flo_chart_info_tv"
+                    tools:listitem="@layout/item_song_chart" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView

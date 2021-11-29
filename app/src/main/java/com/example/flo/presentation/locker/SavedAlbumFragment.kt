@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 
 import com.example.flo.data.SongDataBase
 import com.example.flo.databinding.FragmentLockerAlbumLikedBinding
+import com.example.flo.presentation.util.SharedPreferenceController
 
 class SavedAlbumFragment : Fragment() {
     lateinit var binding: FragmentLockerAlbumLikedBinding
@@ -29,16 +30,14 @@ class SavedAlbumFragment : Fragment() {
 
     private fun setAlbumListAdapter() {
         binding.albumListRv.adapter = albumLikedListAdapter
-        albumLikedListAdapter.addItem(songDB.albumDao().getLikedAlbum(getJwt()) as ArrayList)
-    }
-
-    private fun getJwt(): Int {
-        val spf = activity?.getSharedPreferences("auth", AppCompatActivity.MODE_PRIVATE)
-        return spf!!.getInt("jwt", 0)
+        albumLikedListAdapter.addItem(
+            songDB.albumDao()
+                .getLikedAlbum(SharedPreferenceController.getUserIdx(requireContext())) as ArrayList
+        )
     }
 
     private fun setEmptyView() {
-        when (songDB.albumDao().getLikedAlbum(getJwt()).isEmpty()) {
+        when (songDB.albumDao().getLikedAlbum(SharedPreferenceController.getUserIdx(requireContext())).isEmpty()) {
             true -> binding.albumLikedNoneMessageTv.visibility = View.VISIBLE
             else -> binding.albumLikedNoneMessageTv.visibility = View.GONE
         }
