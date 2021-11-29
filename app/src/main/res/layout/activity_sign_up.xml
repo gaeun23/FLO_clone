@@ -160,6 +160,26 @@
         app:layout_constraintStart_toStartOf="@id/sign_up_password_check_tv"
         app:layout_constraintTop_toBottomOf="@id/sign_up_password_check_tv" />
 
+    <EditText
+        android:id="@+id/sign_up_name_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/sign_et_bg_selector"
+        android:hint="이름"
+        android:includeFontPadding="false"
+        android:paddingStart="4dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="18dp"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/flo_gray_9d9d"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_password_check_tv" />
+
     <Button
         android:id="@+id/sign_up_btn_complete"
         android:layout_width="match_parent"
@@ -171,4 +191,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/sign_up_loading_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:indeterminateTint="@color/flo_blue"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

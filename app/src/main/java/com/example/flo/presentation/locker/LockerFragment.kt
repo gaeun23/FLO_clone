@@ -12,11 +12,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.flo.databinding.FragmentLockerBinding
 import com.example.flo.presentation.main.MainActivity
 import com.example.flo.presentation.sign.SignInActivity
+import com.example.flo.presentation.util.SharedPreferenceController
 import com.google.android.material.tabs.TabLayoutMediator
 
 class LockerFragment : Fragment() {
     lateinit var binding: FragmentLockerBinding
-    private val lockerViewPagerText = arrayListOf("좋아요", "음악파일", "좋아요한 앨범")
+    private val lockerViewPagerText = arrayListOf("좋아요", "음악파일", "♡ 앨범")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,9 +45,9 @@ class LockerFragment : Fragment() {
     }
 
     private fun initSignView() {
-        val jwt = getJwt()
+        val userIdx = SharedPreferenceController.getUserIdx(requireContext())
 
-        when (jwt == 0) {
+        when (userIdx == 0) {
             true -> {
                 binding.lockerTextSignTv.text = "로그인"
                 binding.lockerTextSignTv.setOnClickListener {
@@ -64,16 +65,12 @@ class LockerFragment : Fragment() {
         }
     }
 
-    private fun getJwt(): Int {
-        val sharedPreferences = activity?.getSharedPreferences("auth", MODE_PRIVATE)
-        return sharedPreferences!!.getInt("jwt", 0)
-    }
-
     private fun setLogout() {
         val sharedPreferences = activity?.getSharedPreferences("auth", MODE_PRIVATE)
         val editor = sharedPreferences!!.edit()
 
         editor.remove("jwt")
+        editor.remove("userIdx")
         editor.apply()
     }
 }

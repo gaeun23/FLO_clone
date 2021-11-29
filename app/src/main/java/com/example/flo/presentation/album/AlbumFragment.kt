@@ -14,6 +14,7 @@ import com.example.flo.data.SongDataBase
 import com.example.flo.databinding.FragmentAlbumBinding
 import com.example.flo.presentation.home.HomeFragment
 import com.example.flo.presentation.main.MainActivity
+import com.example.flo.presentation.util.SharedPreferenceController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
 
@@ -74,7 +75,7 @@ class AlbumFragment : Fragment() {
     }
 
     private fun setLikeBtnClickListener(album: Album) {
-        val userId: Int = getJwt()
+        val userId: Int = SharedPreferenceController.getUserIdx(requireContext())
 
         binding.albumBtnLikeOffIv.setOnClickListener {
             when (isLiked) {
@@ -92,7 +93,7 @@ class AlbumFragment : Fragment() {
 
     private fun isLikedAlbum(albumId: Int): Boolean {
         val songDB = SongDataBase.getInstance(requireContext())!!
-        val userId = getJwt()
+        val userId = SharedPreferenceController.getUserIdx(requireContext())
         val likeId: Int? = songDB.albumDao().isLikeAlbum(userId, albumId)
 
         // likeId 값이 없을 때는 null 값, 있을때는 non null
@@ -108,10 +109,5 @@ class AlbumFragment : Fragment() {
     private fun disLikeAlbum(userId: Int, albumId: Int) {
         val songDB = SongDataBase.getInstance(requireContext())!!
         songDB.albumDao().disLikeAlbum(userId, albumId)
-    }
-
-    private fun getJwt(): Int {
-        val sharedPreferences = requireActivity().getSharedPreferences("auth", MODE_PRIVATE)
-        return sharedPreferences!!.getInt("jwt", 0)
     }
 }
