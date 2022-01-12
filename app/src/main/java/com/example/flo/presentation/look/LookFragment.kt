@@ -48,7 +48,7 @@ class LookFragment : Fragment() {
                         lookChartAdapter.songList.add(data[i])
                     }
                     lookChartAdapter.notifyDataSetChanged()
-                } 
+                }
             }
 
             override fun onFailure(call: Call<ResponseSongData>, t: Throwable) {
