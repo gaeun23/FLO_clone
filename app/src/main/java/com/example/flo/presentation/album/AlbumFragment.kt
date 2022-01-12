@@ -20,7 +20,7 @@ import com.google.gson.Gson
 
 class AlbumFragment : Fragment() {
     private lateinit var binding: FragmentAlbumBinding
-    private val infoText = arrayListOf("수록곡","상세정보", "영상")
+    private val infoText = arrayListOf("수 록곡","상세정보", "영상")
     private var gson: Gson = Gson()
 
     private var isLiked: Boolean = false
